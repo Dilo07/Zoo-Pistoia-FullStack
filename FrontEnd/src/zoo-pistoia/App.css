@@ -1,0 +1,23 @@
+/* .Tabella{ */
+    /* border: 2px solid darkgreen; */
+   /*  display: flex;
+    flex-direction: column; */
+   /*  float: left;  */
+    /* width: 800px;  */
+/*   } */
+.Center{
+    text-align: center;
+}
+
+.CenterAndTop{
+  text-align: center;
+    margin-top: 10%;
+}
+  /* table, td, th {
+    border: 2px solid darkgreen;
+  } */
+
+ /*  tr:hover{
+      background-color: darkseagreen;
+  } */
+
