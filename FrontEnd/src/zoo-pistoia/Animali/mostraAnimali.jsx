@@ -39,7 +39,7 @@ function MostraAnimali(props) {
     const classes = useStyles();
     return(
         <div>
-            <Button className={classes.root} variant="contained">Aggiungi</Button>
+            <Button className={classes.root} onClick={() => props.clickAdd()} variant="contained">Aggiungi</Button>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
@@ -57,7 +57,7 @@ function MostraAnimali(props) {
                             <TableCell className={classes.tr}>{animale.id}</TableCell>
                             <TableCell className={classes.tr}>{animale.tipo_animale}</TableCell> 
                             <TableCell className={classes.tr}>{animale.id_recinzione}</TableCell>
-                            <TableCell className={classes.tr}><Button className={classes.delete} variant="contained">Elimina</Button>
+                            <TableCell className={classes.tr}><Button className={classes.delete} onClick={() => props.clickDelete(animale.id)} variant="contained">Elimina</Button>
                             <Button className={classes.edit} variant="contained">Modifica</Button></TableCell>
                         </TableRow>                        
                     ))}

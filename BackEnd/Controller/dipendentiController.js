@@ -3,7 +3,7 @@ const db = require('../connection')
 exports.getAllDipendenti = (req, res) => {
     db.query("SELECT * from dipendenti", function (err, response) {
         if( err ){
-            res.json(err)
+            res.sendStatus(500)
         }else{
             res.json(response)
         } 
@@ -16,7 +16,7 @@ exports.AddDipendente = (req, res) => {
 
     db.query("INSERT INTO dipendenti(nome,cognome) VALUES (?,?)", [nome,cognome], function (err, response) {
         if( err ){
-            console.log(err);
+            res.sendStatus(500);
         }else{
             res.json(response.insertId)
         } 
@@ -28,7 +28,7 @@ exports.DeleteDipendente = (req, res) => {
 
     db.query("DELETE FROM dipendenti WHERE id = " + id, function (err, response) {
         if( err ){
-            console.log(err);
+            res.sendStatus(500);
         }else{
             res.json('true')
         } 
@@ -42,7 +42,7 @@ exports.UpdateDipendente = (req, res) => {
 
     db.query("UPDATE dipendenti SET nome = (?), cognome =  (?) WHERE id = (?)", [nome,cognome,id], function (err, response) {
         if( err ){
-            console.log(err);
+            res.sendStatus(500);
         }else{
             res.json('true')
         } 
