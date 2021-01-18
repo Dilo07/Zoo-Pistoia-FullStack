@@ -3,7 +3,7 @@ const db = require('../connection')
 exports.getAllDipendenti = (req, res) => {
     db.query("SELECT * from dipendenti", function (err, response) {
         if( err ){
-            console.log(err);
+            res.json(err)
         }else{
             res.json(response)
         } 

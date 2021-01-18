@@ -44,12 +44,12 @@ class Dipendenti extends React.Component{
 
     // funzione per switchare tra il form di edit di un dipendente e la tabella dei dipendenti
     // salva nello state dipendenteEdit tutti l'oggetto dipendente preso dal component mostradipendenti
-    switchFormEdit(dipendente){
+    switchFormEdit(dipendenteCopia){
         this.setState({
             viewForm: !this.state.viewForm,
             /* Metodo Spread = concat perchè quando assegniamo un array o un oggetto ad una variabile, quando l'array cambia cambia anche la variabile
             mentre con il metodo Spread ovviamo a questo problema*/
-            dipendenteEdit: {...dipendente}
+            dipendenteEdit: {...dipendenteCopia}
         })
     }
 
@@ -91,7 +91,6 @@ class Dipendenti extends React.Component{
         switch(key){
             case ('nome'):
                 dip.nome = val
-                console.log(dip)
                 this.setState({
                     dipendenteEdit: dip
                 })
@@ -209,7 +208,7 @@ class Dipendenti extends React.Component{
         const Dati = <MostraDipendenti 
             dipendenti={dipendenti} 
             clickAdd={() => this.switchForm()} 
-            clickEdit={(dipendente) => this.switchFormEdit(dipendente)} 
+            clickEdit={(dipendenteCopia) => this.switchFormEdit(dipendenteCopia)} 
             clickDelete={(id) => this.deleteDipendente(id)} 
             sortBy={(key, direction) => this.sortDipendenti(key, direction)} />
 
